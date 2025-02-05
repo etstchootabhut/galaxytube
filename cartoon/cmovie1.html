@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galactic Video Hub</title>
+  <link rel="stylesheet" href="../odysee.css">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Space Icons -->
+</head>
+<body>
+
+  <!-- 🚀 Futuristic Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <!-- Add your custom logo image here -->
+      <img src="../galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      GalaxyTube
+    </div>
+    <nav class="nav-links">
+      <a href="../home.html">Home</a>
+      <a href="../cartoonmovies.html">Cartoon Movies</a>
+      <a href="../movies.html">Movies</a>
+    </nav>
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
+  </header>
+
+  <!-- 🎥 Video Section -->
+  <div class="video-container">
+    <!-- Video Content will go here -->
+  </div>
+
+  <!-- 🌠 Title & Description -->
+  <div class="video-details">
+    <h2 class="video-title">Doraemon: The Movie Nobita In Jannat No 1</h2>
+    <p class="video-description">
+      The movie "Doraemon: Nobita in Jannat No. 1" is an animated film in which the main character, Nobita, wonders about the existence of Heaven. He asks his teacher if Heaven is real, and after being laughed at by his classmates, he persuades Doraemon to take him there to get proof.
+    </p>
+
+    <!-- 📥 Download Button -->
+    <a href="https://download1474.mediafire.com/kd22y43jre6g9J3lWLu_mbzmIpmRhIzt2ENtgUz7jTmz_DkTtSeaEXrYdpmVl6_iPwHxU0prd3_ubY5r3_RhitkxMpckP0_eCWzLPz6UIZsg2INUfoVylh8k3QEVkTHCgGuLlSCq3Sf51TZq1Vgy3FzreEGiFRh_G32CwOTo3d8D/9n3ia3i03om6lcs/%5BDora+Bash%5D+Doraemon+Movie+Nobita+In+Jannat+No.1%281992%29+Hindi+Dubbed.mp4" download="video.mp4" class="download-button">🚀 Download Movie
+    </a>
+  </div>
+
+  <script>
+    function removeOdyseeBranding() {
+      let iframe = document.getElementById("odysee-video");
+      if (!iframe || !iframe.contentWindow) return;
+      
+      let iframeDoc;
+      try {
+        iframeDoc = iframe.contentWindow.document;
+      } catch (e) {
+        return;
+      }
+
+      if (!iframeDoc) return;
+
+      let branding = iframeDoc.querySelector(".vjs-watermark, .branding");
+      if (branding) branding.style.display = "none";
+    }
+
+    // Keep hiding branding every second
+    setInterval(removeOdyseeBranding, 1000);
+
+    // 🌌 Search Bar Functionality (Fake Video Search)
+    function searchVideo() {
+      let query = document.getElementById("search-input").value.toLowerCase();
+      if (query.includes("galaxy")) {
+        alert("🚀 Showing results for: 'Galaxy'");
+      } else {
+        alert("❌ No results found. Try searching for 'Galaxy'.");
+      }
+    }
+  </script>
+  <script src="../search.js"></script>
+
+</body>
+</html>

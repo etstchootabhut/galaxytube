@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galactic Video Hub</title>
+  <link rel="stylesheet" href="../odysee.css">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Space Icons -->
+</head>
+<body>
+
+  <!-- 🚀 Futuristic Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <!-- Add your custom logo image here -->
+      <img src="../galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      GalaxyTube
+    </div>
+    <nav class="nav-links">
+      <a href="../home.html">Home</a>
+      <a href="../cartoonmovies.html">Cartoon Movies</a>
+      <a href="../movies.html">Movies</a>
+    </nav>
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
+  </header>
+
+  <!-- 🎥 Video Section -->
+  <div class="video-container">
+    <iframe id="odysee-video" 
+      src="https://odysee.com/$/embed/khilonahbandar:0?r=7BU21nwp1iBrfsfDSo3qz26tBZrAyBrq?autoplay=0" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- 🌠 Title & Description -->
+  <div class="video-details">
+    <h2 class="video-title">Doraemon: Nobita Aur Khel Khilona Bhool Bhulaiya</h2>
+    <p class="video-description">
+        Doraemon: Nobita Aur Khel Khilona Bhool Bhulaiya is a 1993 Japanese animated science fiction film.Nobita's dad discusses holiday plans with his family, but realizes he can't find the resort. A magical gate appears in Nobita's room, leading to a world of tin toys. When Doraemon gets abducted, the gang sets out to rescue him.
+    </p>
+
+    <!-- 📥 Download Button -->
+    <a href="https://download1323.mediafire.com/gqneks5em6ngVW80sgUS_wPyieeetbbq7dxAOA1vaaDnns6pbfI1F1AEbXGCwN3GNOxIJnGagPW-PfEsORjr7YAPPxxau8iuXGkKsDAxP4YS0dSe0GvSCoO-fh6sqzmWljM_J2q3YfXRmU3QRfu8g4lowW8S1YvzN3ymvthKdyUd/m9es9783376bjzx/Doraemon+Movie+Nobita+Aur+Khel+Khilona+Bhool+Bhulaiya%281993%29+Hindi+Dubbed.mp4" download="video.mp4" class="download-button">🚀 Download Movie
+    </a>
+  </div>
+
+  <script>
+    function removeOdyseeBranding() {
+      let iframe = document.getElementById("odysee-video");
+      if (!iframe || !iframe.contentWindow) return;
+      
+      let iframeDoc;
+      try {
+        iframeDoc = iframe.contentWindow.document;
+      } catch (e) {
+        return;
+      }
+
+      if (!iframeDoc) return;
+
+      let branding = iframeDoc.querySelector(".vjs-watermark, .branding");
+      if (branding) branding.style.display = "none";
+    }
+
+    // Keep hiding branding every second
+    setInterval(removeOdyseeBranding, 1000);
+
+    // 🌌 Search Bar Functionality (Fake Video Search)
+    function searchVideo() {
+      let query = document.getElementById("search-input").value.toLowerCase();
+      if (query.includes("galaxy")) {
+        alert("🚀 Showing results for: 'Galaxy'");
+      } else {
+        alert("❌ No results found. Try searching for 'Galaxy'.");
+      }
+    }
+  </script>
+  <script src="../search.js"></script>
+
+</body>
+</html>
