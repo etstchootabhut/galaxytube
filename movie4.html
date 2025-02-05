@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galactic Video Hub</title>
+  <link rel="stylesheet" href="../odysee.css">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Space Icons -->
+</head>
+<body>
+
+  <!-- 🚀 Futuristic Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <!-- Add your custom logo image here -->
+      <img src="../galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      GalaxyTube
+    </div>
+    <nav class="nav-links">
+      <a href="../home.html">Home</a>
+      <a href="../cartoonmovies.html">Cartoon Movies</a>
+      <a href="../movies.html">Movies</a>
+    </nav>
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
+  </header>
+
+  <!-- 🎥 Video Section -->
+  <div class="video-container">
+    <iframe id="odysee-video" 
+      src="https://odysee.com/$/embed/-Dora-Bash--Doraemon-Nobitas-Great-Adventure-in-the-South-Seas%281998%29-Hindi-Dubbed:8?r=7BU21nwp1iBrfsfDSo3qz26tBZrAyBrq?autoplay=0" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- 🌠 Title & Description -->
+  <div class="video-details">
+    <h2 class="video-title">Avengers Endgame</h2>
+    <p class="video-description">
+        Avengers: Endgame revolves around the surviving members of the Avengers and their allies attempting to reverse the catastrophic events caused by Thanos in Infinity War, who erased half of all life in the universe with the Infinity Stones. The film explores the emotional and physical toll of this event on the characters, as they grapple with loss and the need to restore the universe. The Avengers devise a plan to travel back in time to retrieve the Infinity Stones before Thanos can use them, leading to a series of complex and emotionally charged interactions with past versions of themselves and other characters.
+    </p>
+
+    <!-- 📥 Download Button -->
+    <a href="https://download1334.mediafire.com/cyhekoddkmlgqNCKoBLiBPRApf2XBhlP72is0k8D-f_wnY1jf4cbxAlVEw8RFyBYU64IRS2vjfOQipWLPq4r0GJTmB4fNKucwRLLcF0UlTBogCwyAOwr5E5r0bej9mW2jfIyKk-k_TcKFk0qYSiJSlF0NhWmvY29j0oN-xBT8Wok/gohn5njtibqvwyw/%5BDora+Bash%5D+Doraemon+Nobita%5C%27s+Great+Adventure+in+the+South+Seas%281998%29+Hindi+Dubbed.mkv" download="video.mp4" class="download-button">🚀 Download Movie
+    </a>
+  </div>
+
+  <script>
+    function removeOdyseeBranding() {
+      let iframe = document.getElementById("odysee-video");
+      if (!iframe || !iframe.contentWindow) return;
+      
+      let iframeDoc;
+      try {
+        iframeDoc = iframe.contentWindow.document;
+      } catch (e) {
+        return;
+      }
+
+      if (!iframeDoc) return;
+
+      let branding = iframeDoc.querySelector(".vjs-watermark, .branding");
+      if (branding) branding.style.display = "none";
+    }
+
+    // Keep hiding branding every second
+    setInterval(removeOdyseeBranding, 1000);
+
+    // 🌌 Search Bar Functionality (Fake Video Search)
+    function searchVideo() {
+      let query = document.getElementById("search-input").value.toLowerCase();
+      if (query.includes("galaxy")) {
+        alert("🚀 Showing results for: 'Galaxy'");
+      } else {
+        alert("❌ No results found. Try searching for 'Galaxy'.");
+      }
+    }
+  </script>
+  <script src="../search.js"></script>
+
+</body>
+</html>
