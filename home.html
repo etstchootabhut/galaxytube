@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GalaxyTube - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="odysee.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- 🚀 Futuristic Navbar -->
+<header class="navbar">
+  <div class="logo">
+    <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+    <span>GalaxyTube</span>
+  </div>
+  <nav class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="cartoonmovies.html">Cartoon Movies</a>
+    <a href="movies.html">Movies</a>
+  </nav>
+  <div class="search-bar">
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+      <button onclick="performSearch()">Search</button>
+    </div>
+  </div>
+
+  <!-- Hamburger Menu for mobile -->
+  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</header>
+
+
+
+<!-- 🎥 Carousel Banner -->
+<section class="carousel" onmouseover="pauseCarousel()" onmouseout="resumeCarousel()">
+    <div class="carousel-container">
+      <div class="slide" onclick="goToMovie('movie1.html')">
+        <img src="images/endgame.avif" alt="Banner 1">
+      </div>
+      <div class="slide" onclick="goToMovie('movie2.html')">
+        <img src="images/chichhore.avif" alt="Banner 2">
+      </div>
+      <div class="slide" onclick="goToMovie('movie3.html')">
+        <img src="images/interstellar.jpg" alt="Banner 3">
+      </div>
+      <div class="slide" onclick="goToMovie('movie4.html')">
+        <img src="images/3idiots.png" alt="Banner 4">
+      </div>
+    </div>
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+  </section>
+  
+    
+  <!-- 🌌 Netflix-Style Content Grid -->
+  <main class="content">
+    <h2>Featured Movies</h2>
+    <div class="movie-grid">
+      <div class="movie">
+        <a href="cartoon/cmovie1.html">
+            <img src="images/jannat.jpg" alt="CMovie 1">
+            <p>Doraemon: The Movie Nobita In Jannat No 1</p>
+        </a>
+      </div>               
+      <div class="movie">
+        <a href="cartoon/cmovie2.html">
+            <img src="images/train.jpg" alt="CMovie 2">
+            <p>Doraemon: Nobita and the Galaxy Super-express</p>
+        </a>       
+      </div>
+      <div class="movie">
+        <a href="cartoon/cmovie3.html">
+            <img src="images/khilona.jpg" alt="CMovie 3">
+            <p>Doraemon: Nobita Aur Khel Khilona Bhool Bhulaiya</p>
+        </a>       
+      </div>
+      <div class="movie">
+        <a href="cartoon/cmovie4.html">
+            <img src="images/bow.jpg" alt="CMovie 4">
+            <p>Doraemon: Nobita the Explorer Bow! Bow!</p>
+        </a>       
+      </div>
+      <div class="movie">
+        <a href="cartoon/cmovie5.html">
+            <img src="images/steel.jpg" alt="CMovie 5">
+            <p>Doraemon: Nobita and the New Steel Troops—Winged Angels</p>
+        </a>      
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="search.js"></script>
+  <script>
+    // Function for handling search button click
+    function performSearch() {
+      const query = document.getElementById("search-input").value;
+      
+      // Redirect to the search-results page with query in URL
+      if(query.trim()) {
+        window.location.href = `search-results.html?query=${encodeURIComponent(query)}`;
+      }
+    }
+    
+    // Show search suggestions (can be the same as before)
+    function searchItems() {
+      const query = document.getElementById("search-input").value.toLowerCase();
+      const suggestionsDiv = document.getElementById("suggestions");
+      const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query));
+  
+      if (filteredMovies.length > 0 && query !== "") {
+        suggestionsDiv.innerHTML = filteredMovies.map(movie => 
+          `<div class="suggestion-item">
+            <a href="search-results.html?query=${encodeURIComponent(movie.title)}">${movie.title}</a>
+          </div>`).join('');
+        suggestionsDiv.style.display = "block";
+      } else {
+        suggestionsDiv.style.display = "none";
+      }
+    }
+// Toggle Menu for mobile
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}
+
+  </script>
+
+</body>
+</html>

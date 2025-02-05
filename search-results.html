@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="odysee.css"> <!-- External CSS link -->
+</head>
+<body>
+
+  <!-- Navbar similar to homepage -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      <span>GalaxyTube</span>
+    </div>
+  
+    <!-- Hamburger Icon (visible only on mobile) -->
+    <div class="hamburger-icon" onclick="toggleNavLinks()">☰</div>
+  
+    <!-- Navbar Links (initially hidden on mobile) -->
+    <nav class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="cartoonmovies.html">Cartoon Movies</a>
+      <a href="movies.html">Movies</a>
+    </nav>
+  
+    <!-- Search Bar -->
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+        <button onclick="performSearch()">Search</button>
+      </div>                   
+    </div>
+  </header>
+  
+
+  <!-- Search Results Text -->
+  <section id="search-header">
+    <h2>Search Results</h2>
+  </section>
+
+  <!-- Search Results Section -->
+  <section id="movies">
+    <!-- Movie cards will be displayed here -->
+  </section>
+
+  <script>
+    // Sample movie data
+const movies = [
+      { title: "Doraemon: The Movie Nobita In Jannat No 1", link: "cartoon/cmovie1.html", image: "images/jannat.jpg" },
+      { title: "Doraemon: Nobita and the Galaxy Super-express", link: "cmovie2.html" , image: "images/train.jpg" },
+      { title: "Doraemon: Nobita Aur Khel Khilona Bhool Bhulaiya", link: "cmovie3.html" , image: "images/khilona.jpg" },
+      { title: "Doraemon: Nobita the Explorer Bow! Bow!", link: "cmovie4.html" , image: "images/bow.jpg" },
+      { title: "Doraemon: Nobita and the New Steel Troops—Winged Angels", link: "cmovie5.html" , image: "images/steel.jpg" },
+      { title: "Interstellar", link: "movies/movie1.html" , image: "images/interstellarpos.jpg" },
+      { title: "Chhichhore", link: "movies/movie2.html" , image: "images/chhichhorepos.jpg" },
+      { title: "3 Idiots", link: "movies/movie3.html" , image: "images/3idiotspos.jpg" },
+      { title: "Avengers Endgame", link: "movies/movie4.html" , image: "images/endgamepos.jpg" },
+      { title: "Your Name", link: "movies/movie5.html" , image: "images/yournamepos.jpg" },
+];
+
+// Get the search query from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const query = urlParams.get("query").toLowerCase().trim();
+
+// Filter movies to show those that match the first letter of the search query
+const filteredMovies = movies.filter(movie => movie.title.toLowerCase().startsWith(query));
+
+// Function to display search results
+function displaySearchResults(filteredMovies) {
+  const moviesSection = document.getElementById("movies");
+  moviesSection.innerHTML = ""; // Clear previous results
+
+  if (filteredMovies.length === 0) {
+    moviesSection.innerHTML = "<p class='no-results'>No results found.</p>";
+  } else {
+    filteredMovies.forEach(movie => {
+      const movieCard = document.createElement("a");
+      movieCard.classList.add("movie-card");
+      movieCard.href = movie.link;
+
+      const movieImage = document.createElement("img");
+      movieImage.src = movie.image;
+
+      const movieTitle = document.createElement("div");
+      movieTitle.classList.add("movie-title");
+      movieTitle.textContent = movie.title;
+
+      movieCard.appendChild(movieImage);
+      movieCard.appendChild(movieTitle);
+      moviesSection.appendChild(movieCard);
+    });
+  }
+}
+
+// Display search results based on filtered data
+displaySearchResults(filteredMovies);
+
+// Handle search button click (for direct search queries)
+function performSearch() {
+  const query = document.getElementById("search-input").value.trim();
+  if (query) {
+    window.location.href = `search-results.html?query=${encodeURIComponent(query)}`;
+  }
+}
+function toggleNavLinks() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');  // Add/remove 'active' class to show/hide links
+}
+
+  </script> <!-- External JS file -->
+  <script src="search.js"></script>
+</body>
+</html>

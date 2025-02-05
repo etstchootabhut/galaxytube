@@ -1,0 +1,388 @@
+/* 🌌 Galactic Background */
+body {
+  background-color: #181818;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-attachment: fixed; /* Keeps the background fixed */
+}
+
+/* 🚀 Futuristic Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6); /* Slightly darker background for better contrast */
+  padding: 15px 25px;
+  box-shadow: 0px 4px 10px rgba(138, 43, 226, 0.7);
+}
+
+/* 🎬 Logo with Custom Image */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #0ff;
+  text-shadow: 0px 0px 10px #0ff;
+}
+
+.logo-img {
+  width: 40px; /* Adjust size of your logo */
+  height: 40px;
+  margin-right: 15px; /* More space between logo and text */
+}
+
+/* 🔗 Navigation Links */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  text-shadow: 0px 0px 10px white;
+}
+
+/* 🔍 Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 15px 0 0 15px; /* Same border-radius as video details */
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 280px;
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+/* Remove white background on focus */
+.search-bar input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Unified Search Button and Input */
+.search-bar button {
+  background: #0ff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  border-radius: 0 15px 15px 0; /* Same border-radius as video details */
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.search-bar button:hover {
+  background: #19c2fa;
+  color: white;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.9);
+}
+
+  
+  /* 🎥 Carousel Banner */
+  .carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .carousel-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .slide {
+    display: none;
+  }
+  
+  .slide img {
+    width: 100%;
+    border-radius: 12px;
+  }
+  
+  /* ⏪ ⏩ Carousel Buttons */
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* 🎥 Netflix-Style Content */
+  .content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .movie {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    padding: 10px;
+    transition: 0.3s;
+    box-shadow: 0px 0px 10px #0ff;
+  }
+  
+  .movie a{
+    color: aliceblue;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .movie img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .movie p {
+    margin: 10px 0 0;
+    font-size: 14px;
+  }
+  
+  .movie:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px #0ff;
+  }
+  
+/* 🚀 Carousel Section */
+.carousel {
+    position: relative;
+    width: 70%;
+    height: 70vh; /* Reduced height */
+    margin: auto; /* Center align */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-container {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    transition: transform 0.8s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 65vh;
+    object-fit: cover; /* Ensures full-screen effect */
+    border-radius: 15px; /* Optional for rounded edges */
+    cursor: pointer;
+  }
+  
+  /* ⏪ ⏩ Navigation Buttons */
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  
+  .prev { left: 10px; }
+  .next { right: 10px; }
+  
+  .prev:hover, .next:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: black;
+  }
+  
+  /* 🔵 Navigation Dots */
+  .dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .dot.active {
+    background: white;
+    transform: scale(1.3);
+  }
+  
+/* Ensure the navbar height stays consistent */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centers the content vertically */
+    padding: 10px 20px; /* Adjust padding as needed */
+    height: 60px; /* Adjust to the height you want for the navbar */
+  }
+  
+  /* Style for the search bar container */
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 350px; /* Adjust the width of the input */
+  }
+  
+  /* Style for the input box */
+  #search-input {
+    padding: 20px;
+    height: 40px;
+    width: 100%; /* Make the input take full width */
+    box-sizing: border-box; /* Include padding in the width */
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Style for the search button */
+  button {
+    padding: 8px 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: -5px;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  /* Suggestions container */
+  .suggestions-container {
+    display: none;
+    position: absolute;
+    top: 100%; /* Shows suggestions directly below the input */
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    max-height: 150px;
+    overflow-y: auto;
+    border-radius: 5px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+  
+  /* Each suggestion item */
+  .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #555;
+  }
+  
+  /* Search results */
+  #search-results {
+    margin-top: 20px;
+  }
+  
+  .movie-result {
+    padding: 10px;
+    background-color: #444;
+    margin-bottom: 10px;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .search-container {
+    position: relative;
+    width: 300px;
+  }
+  
+  .suggestions-container {
+    position: absolute;
+    width: 100%;
+    background: #222;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    display: block;
+    text-decoration: none; /* Removes underline */
+  }
+  
+  .suggestion-item:hover {
+    background: #333;
+  }  
+
+  a{
+    text-decoration: none;
+    font-weight: bold;
+    color: aliceblue;
+  }

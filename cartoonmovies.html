@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GalaxyTube - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="odysee.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- 🚀 Futuristic Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      <span>GalaxyTube</span>
+    </div>
+    <nav class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="cartoonmovies.html">Cartoon Movies</a>
+      <a href="movies.html">Movies</a>
+    </nav>
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
+  </header>
+   
+  <!-- 🌌 Netflix-Style Content Grid -->
+  <main class="content">
+    <h2>Cartoon Movies</h2>
+    <div class="movie-grid">
+      <div class="movie">
+        <a href="cartoon/cmovie1.html">
+            <img src="images/jannat.jpg" alt="Movie 1">
+            <p>Doraemon: The Movie Nobita In Jannat No 1</p>
+        </a>
+      </div>               
+      <div class="movie">
+        <a href="cartoon/cmovie2.html">
+            <img src="images/train.jpg" alt="CMovie 2">
+            <p>Doraemon: Nobita and the Galaxy Super-express</p>
+        </a>       
+      </div>
+      <div class="movie">
+        <a href="cartoon/cmovie3.html">
+            <img src="images/khilona.jpg" alt="CMovie 3">
+            <p>Doraemon: Nobita Aur Khel Khilona Bhool Bhulaiya</p>
+        </a>       
+      </div>
+      <div class="movie">
+        <a href="cartoon/cmovie4.html">
+            <img src="images/bow.jpg" alt="CMovie 4">
+            <p>Doraemon: Nobita the Explorer Bow! Bow!</p>
+        </a>       
+      </div>
+      <div class="movie">
+        <a href="cartoon/cmovie5.html">
+            <img src="images/steel.jpg" alt="CMovie 5">
+            <p>Doraemon: Nobita and the New Steel Troops—Winged Angels</p>
+        </a>      
+      </div>
+      <div class="movie">
+        <a href="cartoon/cmovie6.html">
+            <img src="images/pirates.jpg" alt="CMovie 6">
+            <p>Doraemon: Nobita's Great Adventure in the South Seass</p>
+        </a>      
+      </div>
+    </div>
+  </main>
+
+  <script src="search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+/* Add viewport meta tag in HTML head for proper mobile rendering */
+/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  height: auto;
+  min-height: 60px;
+}
+
+/* Search Container */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 350px; /* Maximum width for larger screens */
+  margin: 10px 0;
+}
+
+/* Input Field */
+#search-input {
+  padding: 12px;
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Search Results Header */
+#search-header {
+  text-align: center;
+  padding: 15px;
+}
+
+#search-header h2 {
+  font-size: 24px;
+  color: #fff;
+  margin: 10px 0;
+}
+
+/* Movie Cards Grid */
+#movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 15px;
+}
+
+.movie-card {
+  width: 150px;
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  text-decoration: none;
+  color: white;
+}
+
+.movie-card:hover {
+  transform: scale(1.03);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+}
+
+.movie-card .movie-title {
+  padding: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Mobile Only - Media Query for screens max-width: 768px */
+@media only screen and (max-width: 768px) {
+  /* Navbar as a column for mobile */
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 5%;
+  }
+
+  /* Logo styling */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  /* Hamburger Icon Styling - visible only on mobile */
+  .hamburger-icon {
+    font-size: 30px;
+    display: block;  /* Show hamburger icon on mobile */
+    cursor: pointer;
+    margin-top: 10px;
+    color: white;
+  }
+
+  /* Initially hide nav-links */
+  .nav-links {
+    display: none;  /* Hide links on mobile initially */
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Styling for nav links */
+  .nav-links a {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #444; /* Divider between links */
+  }
+
+  .nav-links a:hover {
+    background-color: #444;
+  }
+
+  /* Search bar styling */
+  .search-container {
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  #search-input {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  /* Show nav links when hamburger is clicked */
+  .nav-links.active {
+    display: flex;  /* Show nav links when 'active' class is added */
+  }
+}
+
+/* Hide hamburger icon on larger screens (Tablet and PC) */
+@media only screen and (min-width: 769px) {
+  .hamburger-icon {
+    display: none;  /* Hide hamburger icon on tablets and PCs */
+  }
+}
+
+@media (max-width: 480px) { /* Mobile phones */
+  #search-header h2 {
+    font-size: 20px;
+  }
+  
+  .movie-card {
+    width: 90%; /* One card per row on smallest screens */
+    max-width: none;
+  }
+  
+  .movie-card img {
+    height: 250px;
+  }
+  
+  #search-input {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Touch Optimization */
+button {
+  min-width: 60px; /* Minimum touch target size */
+  padding: 12px 16px;
+}
+
+.movie-card {
+  touch-action: manipulation; /* Improve touch responsiveness */
+}
+
+/* Prevent text overflow */
+.movie-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
+}
