@@ -52,8 +52,9 @@ function performSearch() {
 // Hide suggestions when clicking outside
 document.addEventListener("click", (e) => {
   if (!suggestionsDiv.contains(e.target) && e.target !== searchInput) {
+    // Perform some action, such as hiding the suggestions
     suggestionsDiv.style.display = "none";
-  }
+}
 });
 
 // Show suggestions while typing
