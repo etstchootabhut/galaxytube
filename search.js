@@ -58,3 +58,21 @@ document.addEventListener("click", (e) => {
 
 // Show suggestions while typing
 searchInput.addEventListener("input", searchItems);
+
+  document.addEventListener("fullscreenchange", async function () {
+    if (document.fullscreenElement) {
+      // Change to landscape when entering fullscreen
+      if (screen.orientation && screen.orientation.lock) {
+        try {
+          await screen.orientation.lock("landscape");
+        } catch (error) {
+          console.warn("Orientation lock not supported:", error);
+        }
+      }
+    } else {
+      // Unlock orientation when exiting fullscreen
+      if (screen.orientation && screen.orientation.unlock) {
+        screen.orientation.unlock();
+      }
+    }
+  });
