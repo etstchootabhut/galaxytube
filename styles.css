@@ -506,4 +506,9 @@ body {
     cursor: pointer;
   }
   
+  .movie:hover {
+    transform: scale(0);
+    box-shadow: none;
+  }
+
 }
