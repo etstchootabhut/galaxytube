@@ -80,49 +80,5 @@
     }
   </script>
   <script src="../search.js"></script>
-
-</body>
-</html>
-
-    </p>
-
-    <!-- 📥 Download Button -->
-    <a href="https://download1334.mediafire.com/cyhekoddkmlgqNCKoBLiBPRApf2XBhlP72is0k8D-f_wnY1jf4cbxAlVEw8RFyBYU64IRS2vjfOQipWLPq4r0GJTmB4fNKucwRLLcF0UlTBogCwyAOwr5E5r0bej9mW2jfIyKk-k_TcKFk0qYSiJSlF0NhWmvY29j0oN-xBT8Wok/gohn5njtibqvwyw/%5BDora+Bash%5D+Doraemon+Nobita%5C%27s+Great+Adventure+in+the+South+Seas%281998%29+Hindi+Dubbed.mkv" download="video.mp4" class="download-button">🚀 Download Movie
-    </a>
-  </div>
-
-  <script>
-    function removeOdyseeBranding() {
-      let iframe = document.getElementById("odysee-video");
-      if (!iframe || !iframe.contentWindow) return;
-      
-      let iframeDoc;
-      try {
-        iframeDoc = iframe.contentWindow.document;
-      } catch (e) {
-        return;
-      }
-
-      if (!iframeDoc) return;
-
-      let branding = iframeDoc.querySelector(".vjs-watermark, .branding");
-      if (branding) branding.style.display = "none";
-    }
-
-    // Keep hiding branding every second
-    setInterval(removeOdyseeBranding, 1000);
-
-    // 🌌 Search Bar Functionality (Fake Video Search)
-    function searchVideo() {
-      let query = document.getElementById("search-input").value.toLowerCase();
-      if (query.includes("galaxy")) {
-        alert("🚀 Showing results for: 'Galaxy'");
-      } else {
-        alert("❌ No results found. Try searching for 'Galaxy'.");
-      }
-    }
-  </script>
-  <script src="../search.js"></script>
-
 </body>
 </html>
