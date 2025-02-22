@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search Results</title>
   <link rel="stylesheet" href="search.css">
-  <link rel="stylesheet" href="odysee.css"> <!-- External CSS link -->
+  <link rel="stylesheet" href="odysee.css">
+  <link rel="stylesheet" href="styles.css"> <!-- External CSS link -->
 </head>
 <body>
 
@@ -15,24 +16,20 @@
       <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
       <span>GalaxyTube</span>
     </div>
-  
-    <!-- Hamburger Icon (visible only on mobile) -->
-    <div class="hamburger-icon" onclick="toggleNavLinks()">☰</div>
-  
-    <!-- Navbar Links (initially hidden on mobile) -->
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="cartoonmovies.html">Cartoon Movies</a>
       <a href="movies.html">Movies</a>
     </nav>
-  
-    <!-- Search Bar -->
     <div class="search-bar">      
       <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
         <button onclick="performSearch()">Search</button>
-      </div>                   
-    </div>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
   </header>
   
 
@@ -54,11 +51,13 @@ const movies = [
       { title: "Doraemon: Nobita Aur Khel Khilona Bhool Bhulaiya", link: "cmovie3.html" , image: "images/khilona.jpg" },
       { title: "Doraemon: Nobita the Explorer Bow! Bow!", link: "cmovie4.html" , image: "images/bow.jpg" },
       { title: "Doraemon: Nobita and the New Steel Troops—Winged Angels", link: "cmovie5.html" , image: "images/steel.jpg" },
+      { title: "Doraemon Movie: Doraemon Nobita & Three Visionary Swordsmen", link: "cmovie6.html" , image: "images/talwarbaazpos.jpg" },
       { title: "Interstellar", link: "movies/movie1.html" , image: "images/interstellarpos.jpg" },
       { title: "Chhichhore", link: "movies/movie2.html" , image: "images/chhichhorepos.jpg" },
       { title: "3 Idiots", link: "movies/movie3.html" , image: "images/3idiotspos.jpg" },
       { title: "Avengers Endgame", link: "movies/movie4.html" , image: "images/endgamepos.jpg" },
       { title: "Your Name", link: "movies/movie5.html" , image: "images/yournamepos.jpg" },
+      { title: "Bahubali: The Beginning", link: "movies/movie6.html", image: "images/bahu1.jpg" },
 ];
 
 // Get the search query from the URL

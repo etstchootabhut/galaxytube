@@ -7,11 +7,13 @@ const movies = [
   { title: "Doraemon: Nobita Aur Khel Khilona Bhool Bhulaiya", link: "cmovie3.html" },
   { title: "Doraemon: Nobita the Explorer Bow! Bow!", link: "cmovie4.html" },
   { title: "Doraemon: Nobita and the New Steel Troops—Winged Angels", link: "cmovie5.html" },
+  { title: "Doraemon Movie: Doraemon Nobita & Three Visionary Swordsmen", link: "cmovie6.html" },
   { title: "Interstellar", link: "movies/movie1.html" },
   { title: "Chhichhore", link: "movies/movie2.html" },
   { title: "3 Idiots", link: "movies/movie3.html" },
   { title: "Avengers Endgame", link: "movies/movie4.html" },
   { title: "Your Name", link: "movies/movie5.html" },
+  { title: "Bahubali: The Beginning", link: "movies/movie6.html" },
 ];
 
 function searchItems() {

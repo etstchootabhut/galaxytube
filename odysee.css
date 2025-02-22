@@ -9,94 +9,6 @@ body {
   background-attachment: fixed; /* Keeps the background fixed */
 }
 
-/* 🚀 Futuristic Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.6); /* Slightly darker background for better contrast */
-  padding: 15px 25px;
-  box-shadow: 0px 4px 10px rgba(138, 43, 226, 0.7);
-}
-
-/* 🎬 Logo with Custom Image */
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 26px;
-  font-weight: bold;
-  color: #0ff;
-  text-shadow: 0px 0px 10px #0ff;
-}
-
-.logo-img {
-  width: 40px; /* Adjust size of your logo */
-  height: 40px;
-  margin-right: 15px; /* More space between logo and text */
-}
-
-/* 🔗 Navigation Links */
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 20px;
-  padding: 10px;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  text-shadow: 0px 0px 10px white;
-}
-
-/* 🔍 Search Bar */
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar input {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 15px 0 0 15px; /* Same border-radius as video details */
-  border: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  width: 280px;
-  outline: none;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-  transition: background-color 0.3s ease;
-}
-
-/* Remove white background on focus */
-.search-bar input:focus {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Unified Search Button and Input */
-.search-bar button {
-  background: #0ff;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  cursor: pointer;
-  border-radius: 0 15px 15px 0; /* Same border-radius as video details */
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.3s;
-  box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.6);
-  display: flex;
-  align-items: center;
-}
-
-.search-bar button:hover {
-  background: #19c2fa;
-  color: white;
-  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.9);
-}
-
 /* 🎥 Video Container - Styled for Space Theme */
 .video-container {
   position: relative;
@@ -205,7 +117,7 @@ body {
   }
 
   .nav-links a {
-    margin: 20px 0;
+    margin: 30px 0;
     font-size: 18px;
     color: white;
     text-decoration: none;
@@ -287,4 +199,234 @@ body {
     box-shadow: 0px 0px 20px #0ff;
   }
 
+}
+
+.video-container {
+  position: relative;
+  width: 65vw;
+  max-width: 1600px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+video {
+  width: 100%;
+  height: 100%;
+}
+
+.controls-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-container:hover .controls-container {
+  opacity: 1;
+}
+
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #e50914;
+  width: 0;
+  position: relative;
+  transition: width 0.1s linear;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.left-controls, .right-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.control-btn i {
+  filter: brightness(0) invert(1);
+}
+
+.volume-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.volume-slider {
+  width: 10px;
+  height: 4px;
+  background: #e50914;
+  position: absolute;
+  top: 40px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.volume-container:hover .volume-slider {
+  width: 80px;
+  opacity: 1;
+}
+
+.time-display {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+}
+
+.big-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.video-container.paused .big-play-btn {
+  opacity: 1;
+}
+
+.loading-spinner {
+  width: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.settings-menu {
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settings-menu button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.settings-menu button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.fullscreen .video-container {
+  width: 100vw;
+  height: auto;
+  max-width: none;
+  border-radius: 0;
+}
+
+/* 🎚 Horizontal Volume Slider */
+#volumeSlider {
+  width: 120px;  /* Adjust width */
+  height: 5px;
+  background: #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.2s;
+}
+
+/* 🔄 Custom Thumb (for modern UI) */
+#volumeSlider::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  background: #0ff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#volumeSlider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #0ff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* 🔊 Volume Indicator */
+.volume-indicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 24px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ⏪ ⏩ Skip Indicator */
+.skip-indicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 30px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 🔊 Volume Indicator */
+.volume-indicator, .skip-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 24px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 100;
+}
+
+/* ⏪ ⏩ Skip Indicator */
+.skip-indicator {
+  font-size: 30px;
 }

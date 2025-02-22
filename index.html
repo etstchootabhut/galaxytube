@@ -21,19 +21,15 @@
     <a href="cartoonmovies.html">Cartoon Movies</a>
     <a href="movies.html">Movies</a>
   </nav>
-  <div class="search-bar">
+  <div class="search-bar">      
     <div class="search-container">
-      <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+      <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
       <button onclick="performSearch()">Search</button>
+      <div id="search-suggestions" class="suggestions-container"></div>
+    </div>                  
+        <!-- To display the filtered search results below the search bar -->
+        <div id="search-results"></div>          
     </div>
-  </div>
-
-  <!-- Hamburger Menu for mobile -->
-  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
 </header>
 
 
@@ -98,40 +94,6 @@
 
   <script src="script.js"></script>
   <script src="search.js"></script>
-  <script>
-    // Function for handling search button click
-    function performSearch() {
-      const query = document.getElementById("search-input").value;
-      
-      // Redirect to the search-results page with query in URL
-      if(query.trim()) {
-        window.location.href = `search-results.html?query=${encodeURIComponent(query)}`;
-      }
-    }
-    
-    // Show search suggestions (can be the same as before)
-    function searchItems() {
-      const query = document.getElementById("search-input").value.toLowerCase();
-      const suggestionsDiv = document.getElementById("suggestions");
-      const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query));
-  
-      if (filteredMovies.length > 0 && query !== "") {
-        suggestionsDiv.innerHTML = filteredMovies.map(movie => 
-          `<div class="suggestion-item">
-            <a href="search-results.html?query=${encodeURIComponent(movie.title)}">${movie.title}</a>
-          </div>`).join('');
-        suggestionsDiv.style.display = "block";
-      } else {
-        suggestionsDiv.style.display = "none";
-      }
-    }
-// Toggle Menu for mobile
-function toggleMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  navLinks.classList.toggle('active');
-}
-
-  </script>
 
 </body>
 </html>
