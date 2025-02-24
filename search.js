@@ -8,6 +8,8 @@ const movies = [
   { title: "Doraemon: Nobita the Explorer Bow! Bow!", link: "cmovie4.html" },
   { title: "Doraemon: Nobita and the New Steel Troops—Winged Angels", link: "cmovie5.html" },
   { title: "Doraemon Movie: Doraemon Nobita & Three Visionary Swordsmen", link: "cmovie6.html" },
+  { title: "Doraemon: The Record of Nobita's Parallel Visit to the West", link: "cmovie7.html" },
+  { title: "Doraemon: Nobita's Dorabian Nights", link: "cmovie8.html" },
   { title: "Interstellar", link: "movies/movie1.html" },
   { title: "Chhichhore", link: "movies/movie2.html" },
   { title: "3 Idiots", link: "movies/movie3.html" },
@@ -78,4 +80,45 @@ searchInput.addEventListener("input", searchItems);
         screen.orientation.unlock();
       }
     }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('.video-container video');
+    const playPauseBtn = document.querySelector('.control-btn.play-pause');
+    const progressContainer = document.querySelector('.progress-container');
+    const progressBar = document.querySelector('.progress-bar');
+    const volumeSlider = document.querySelector('.volume-slider');
+    const volumeLevel = document.querySelector('.volume-slider .volume-level');
+  
+    // Play/Pause Button
+    playPauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; // Pause icon
+      } else {
+        video.pause();
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>'; // Play icon
+      }
+    });
+  
+    // Update Progress Bar as Video Plays
+    video.addEventListener('timeupdate', () => {
+      const progress = (video.currentTime / video.duration) * 100;
+      progressBar.style.width = `${progress}%`;
+    });
+  
+    // Seek Video on Progress Bar Tap
+    progressContainer.addEventListener('click', (e) => {
+      const rect = progressContainer.getBoundingClientRect();
+      const clickPosition = (e.clientX - rect.left) / rect.width;
+      video.currentTime = clickPosition * video.duration;
+    });
+  
+    // Volume Control
+    volumeSlider.addEventListener('click', (e) => {
+      const rect = volumeSlider.getBoundingClientRect();
+      const clickPosition = (rect.bottom - e.clientY) / rect.height;
+      video.volume = clickPosition;
+      volumeLevel.style.height = `${clickPosition * 100}%`;
+    });
   });

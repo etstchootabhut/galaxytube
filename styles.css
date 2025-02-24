@@ -191,9 +191,12 @@ body {
   }
 
   .movie img {
-    width: 100%;
-    border-radius: 8px;
+    width: 100%; /* Ensures responsiveness */
+    height: 230px; /* Set a fixed height */
+    object-fit: cover; /* Crops and fills the space while maintaining aspect ratio */
+    border-radius: 5px; /* Optional: Rounded corners for better design */
   }
+  
   
   .movie p {
     margin: 10px 0 ;

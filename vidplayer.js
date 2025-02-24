@@ -228,3 +228,65 @@ speedBtn.addEventListener('click', () => {
     video.playbackRate = speeds[speedIndex];
     speedBtn.textContent = `Speed: ${speeds[speedIndex]}x`;
 });
+
+// Add a title with transparent background in the top-left corner
+const videoTitle = document.createElement("div");
+videoTitle.classList.add("video-title");
+videoTitle.textContent = document.querySelector(".video-title").textContent; // Get title from HTML
+videoContainer.prepend(videoTitle);
+
+// Apply styles for title
+videoTitle.style.position = "absolute";
+videoTitle.style.top = "10px";
+videoTitle.style.left = "5px";
+videoTitle.style.color = "white";
+videoTitle.style.padding = "8px 15px";
+videoTitle.style.borderRadius = "5px";
+videoTitle.style.fontSize = "22px";
+videoTitle.style.fontWeight = "bold";
+
+// Add loading animation in the center of the video player
+const loadingIndicator = document.createElement("div");
+loadingIndicator.classList.add("loading-indicator");
+loadingIndicator.innerHTML = '<i class="fa-solid fa-spinner fa-spin fa-3x"></i>';
+videoContainer.appendChild(loadingIndicator);
+
+loadingIndicator.style.position = "absolute";
+loadingIndicator.style.top = "50%";
+loadingIndicator.style.left = "50%";
+loadingIndicator.style.transform = "translate(-50%, -50%)";
+loadingIndicator.style.display = "none";
+
+// Show loading animation when buffering
+video.addEventListener("waiting", () => {
+    loadingIndicator.style.display = "block";
+});
+
+// Hide loading animation when video starts playing
+video.addEventListener("playing", () => {
+    loadingIndicator.style.display = "none";
+});
+
+// Hide cursor, controls, and title after 3 seconds of inactivity
+let mouseTimeout;
+videoContainer.addEventListener("mousemove", () => {
+    videoContainer.style.cursor = "auto";
+    document.querySelector(".controls-container").style.opacity = "1";
+    videoTitle.style.opacity = "1";
+    clearTimeout(mouseTimeout);
+    mouseTimeout = setTimeout(() => {
+        videoContainer.style.cursor = "none";
+        document.querySelector(".controls-container").style.opacity = "0";
+        videoTitle.style.opacity = "0";
+    }, 3000);
+});
+
+document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) {
+        videoContainer.style.cursor = "auto"; // Reset cursor when exiting fullscreen
+        document.querySelector(".controls-container").style.opacity = "1";
+        videoTitle.style.opacity = "1";
+        clearTimeout(mouseTimeout);
+    }
+});
+
