@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galactic Video Hub</title>
   <link rel="stylesheet" href="../odysee.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Space Icons -->
 </head>
 <body>
@@ -36,7 +36,7 @@
 
   <!-- 🎥 Video Section -->
   <div class="video-container" id="videoContainer">
-    <video id="video" src="https://hugh.cdn.rumble.cloud/video/s8/2/m/G/N/2/mGN2s.caa.mp4?u=0&b=0"></video>
+    <video id="video" src="https://hugh.cdn.rumble.cloud/video/s8/2/s/Y/A/3/sYA3s.caa.mp4?u=0&b=0"></video>
     
     <div class="controls-container">
         <div class="progress-container" id="progressContainer">
@@ -92,13 +92,12 @@
       <i class="fa-solid fa-spinner fa-3x" alt="loading-spinner" width="40"></i>
     </div>
 </div>
-  
 
   <!-- 🌠 Title & Description -->
   <div class="video-details">
-    <h2 class="video-title">Doraemon: Nobita and the New Steel Troops:Winged Angels</h2>
+    <h2 class="video-title">SHINCHAN – ADVENTURES IN HENDERLAND</h2>
     <p class="video-description">
-        Doraemon: Nobita and the New Steel Troops—Winged Angels: This 2011 Japanese animated science fiction action-adventure film is a remake of the 1986 movie "Doraemon: Nobita and the Steel Troops." It is the 31st movie in the Doraemon franchise and the first Doraemon film to be released in 3D. The plot revolves around Nobita and Doraemon who find a giant robot named Zanda Cross, which they later learn is a destructive weapon.
+        The movie "Doraemon: Nobita the Explorer Bow! Bow!" is a part of the Doraemon franchise. In the story, Nobita finds a stray dog and brings it home, naming it Peko. It is later revealed that Peko is actually a prince from a dog kingdom located deep in the African Smokers Forest, where dogs have evolved and developed their own empire
     </p>
 
     <!-- 📥 Download Button -->
@@ -137,8 +136,36 @@
       }
     }
   </script>
+  <script src="search.js"></script>
+  <script>
+    // Function for handling search button click
+    function performSearch() {
+      const query = document.getElementById("search-input").value;
+      
+      // Redirect to the search-results page with query in URL
+      if(query.trim()) {
+        window.location.href = `search-results.html?query=${encodeURIComponent(query)}`;
+      }
+    }
+    
+    // Show search suggestions (can be the same as before)
+    function searchItems() {
+      const query = document.getElementById("search-input").value.toLowerCase();
+      const suggestionsDiv = document.getElementById("suggestions");
+      const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query));
+  
+      if (filteredMovies.length > 0 && query !== "") {
+        suggestionsDiv.innerHTML = filteredMovies.map(movie => 
+          `<div class="suggestion-item">
+            <a href="search-results.html?query=${encodeURIComponent(movie.title)}">${movie.title}</a>
+          </div>`).join('');
+        suggestionsDiv.style.display = "block";
+      } else {
+        suggestionsDiv.style.display = "none";
+      }
+    }
+  </script>
   <script src="../search.js"></script>
-  <script src="../vidplayer.js"></script>
 
 </body>
 </html>
