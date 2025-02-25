@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GalaxyTube - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="odysee.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="pagination.css"> <!-- CSS for buttons -->
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+          <!-- Add your custom logo image here -->
+          <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+          GalaxyTube
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="cartoonmovies.html">Cartoon Movies</a>
+          <a href="movies.html">Movies</a>
+        </nav>
+        <div class="search-bar">      
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
+            <button onclick="performSearch()">Search</button>
+            <div id="search-suggestions" class="suggestions-container"></div>
+          </div>                  
+              <!-- To display the filtered search results below the search bar -->
+              <div id="search-results"></div>          
+          </div>
+      </header>
+
+  <main class="content">
+    <h2>Cartoon Movies</h2>
+    
+    <div class="movie-grid">
+        <div class="movie">
+            <a href="cartoon/cmovie46.html">
+                <img src="images/buriburi.jpg" alt="CMovie 9">
+                <p>Shinchan Buri Buri Kingdom</p>
+            </a>      
+          </div>
+          <div class="movie">
+            <a href="cartoon/cmovie47.html">
+                <img src="images/higurepos.jpg" alt="CMovie 9">
+                <p>SHINCHAN in ACTION KAMEN vs HIGURE RAKSHAS</p>
+            </a>      
+          </div>
+    </div>
+
+    <!-- Pagination Buttons -->
+    <div class="pagination">
+      <a href="cartoonmovies3.html" class="page-button">← Previous Page</a>
+    </div>
+
+  </main>
+
+</body>
+</html>

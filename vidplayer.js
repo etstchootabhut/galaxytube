@@ -290,3 +290,121 @@ document.addEventListener("fullscreenchange", () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    var video = document.getElementById("video");
+    var captionsBtn = document.getElementById("captionsBtn");
+    var qualityBtn = document.getElementById("qualityBtn");
+    var settingsMenu = document.getElementById("settingsMenu");
+    var qualityDropdown;
+
+    var hls;
+
+    // Load HLS Stream
+    function loadHLS() {
+        if (Hls.isSupported()) {
+            hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                console.log("HLS Loaded Successfully");
+                createQualityMenu();
+            });
+        } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+            video.src = videoSrc;
+        } else {
+            console.error("HLS is not supported in this browser.");
+        }
+    }
+
+    // Create Quality Menu
+    function createQualityMenu() {
+        if (document.querySelector(".quality-dropdown")) {
+            document.querySelector(".quality-dropdown").remove();
+        }
+
+        let levels = hls.levels.map((level, index) => ({
+            index: index,
+            resolution: level.height + "p",
+        }));
+
+        levels.unshift({ index: -1, resolution: "Auto" }); // Add Auto option
+
+        qualityDropdown = document.createElement("div");
+        qualityDropdown.classList.add("quality-dropdown");
+
+        levels.forEach((level) => {
+            let option = document.createElement("button");
+            option.innerText = level.resolution;
+            option.dataset.level = level.index;
+            option.addEventListener("click", function () {
+                changeQuality(level.index);
+                qualityBtn.innerText = "Quality: " + level.resolution;
+                qualityDropdown.style.display = "none";
+            });
+            qualityDropdown.appendChild(option);
+        });
+
+        settingsMenu.appendChild(qualityDropdown);
+    }
+
+    // Change Video Quality
+    function changeQuality(index) {
+        hls.currentLevel = index;
+    }
+
+    // Toggle Captions (Show/Hide)
+    captionsBtn.addEventListener("click", function () {
+        let captionsTrack = video.textTracks[0]; // Access the first track (subtitles)
+        if (captionsTrack) {
+            if (captionsTrack.mode === "showing") {
+                captionsTrack.mode = "hidden"; // Hide captions
+                captionsBtn.innerText = "Captions: Off";
+            } else {
+                captionsTrack.mode = "showing"; // Show captions
+                captionsBtn.innerText = "Captions: On";
+            }
+        } else {
+            console.error("Captions track not found.");
+        }
+    });    
+    
+
+    // Show/Hide Quality Dropdown
+    qualityBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        qualityDropdown.style.display = qualityDropdown.style.display === "block" ? "none" : "block";
+    });
+
+    // Close Drop-Up Menu When Clicking Outside
+    document.addEventListener("click", function (e) {
+        if (!qualityDropdown.contains(e.target) && e.target !== qualityBtn) {
+            qualityDropdown.style.display = "none";
+        }
+    });
+
+    loadHLS(); // Load the video with quality options
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var video = document.getElementById("video");
+    var captionsBtn = document.getElementById("captionsBtn");
+
+    // Access the first text track (subtitles)
+    let captionsTrack = video.textTracks[0];
+
+    // Ensure captions are showing by default
+    if (captionsTrack) {
+        captionsTrack.mode = "showing"; // Ensure the subtitles are enabled initially
+    }
+
+    // Toggle Captions (Show/Hide)
+    captionsBtn.addEventListener("click", function () {
+        if (captionsTrack.mode === "showing") {
+            captionsTrack.mode = "hidden"; // Hide captions
+            captionsBtn.innerText = "Captions: Off";
+        } else {
+            captionsTrack.mode = "showing"; // Show captions
+            captionsBtn.innerText = "Captions: On";
+        }
+    });
+});

@@ -23,7 +23,7 @@ body {
 /* 📺 Responsive Video Embed */
 .video-container iframe {
   width: 100%;
-  height: 480px;
+  height: auto;
   border: none;
 }
 
@@ -460,7 +460,6 @@ body {
 .video-container iframe, .video-container video {
   width: 100%;
   height: auto;
-  max-height: 480px; /* Adjust height based on screen size */
 }
 
 /* 🕹 Video Controls */
@@ -654,3 +653,41 @@ body {
     }
   }
 }
+/* Quality Drop-Up */
+.quality-dropdown {
+  position: absolute;
+  bottom: 50px; /* Positioned above the settings button */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 20, 0.9);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  display: none;
+  z-index: 1000;
+}
+
+.quality-dropdown button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+.quality-dropdown button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Captions Button */
+#captionsBtn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+}
+
