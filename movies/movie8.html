@@ -37,7 +37,10 @@
 
   <!-- 🎥 Video Section -->
   <div class="video-container" id="videoContainer">
-    <video id="video"></video>
+    <video id="video" style="width: 100%; height: auto;">
+        <!-- Link to your external subtitle file -->
+        <track id="captionsTrack" label="English" kind="subtitles" srclang="en" src="../subtitles/a443627e6f64d3a7298883920dd536f1.vtt" default>
+    </video>
     
     <div class="controls-container">
         <div class="progress-container" id="progressContainer">
@@ -79,7 +82,7 @@
     <!-- Settings Menu -->
     <div class="settings-menu" id="settingsMenu">
         <button id="speedBtn">Speed: 1x</button>
-        <button id="captionsBtn">Captions: Off</button>
+        <button id="captionsBtn">Captions: On</button>
         <button id="qualityBtn">Quality: Auto</button>
     </div>
 
@@ -96,7 +99,7 @@
 
   <!-- 🌠 Title & Description -->
   <div class="video-details">
-    <h2 class="video-title">Your Name</h2>
+    <h2 class="video-title">One Piece Film Red</h2>
     <p class="video-description">
         The film explores themes of love, friendship, and the search for identity, set against a backdrop of stunning visuals and a captivating soundtrack. It premiered at the 2016 Anime Expo in Los Angeles on July 3, 2016, and was theatrically released in Japan on August 26, 2016. The movie has been praised for its beautiful animation, emotional depth, and the way it balances fantastical elements with grounded reality.
     </p>
@@ -118,7 +121,7 @@
     }
   </script>
    <script>
-    var videoSrc = "https://w2r.jonextugundu.net/_v7/462f0ad7b60573e9fceb9391a56938ef1a2f5b224bf5ecc273c50df25aa3619f364e68a109158ef83abf922fbe6416e062efe5c4e4740fa10741eba6167fd6aa5fa9c9ead6710d62286590c62c5f8348a821531898b652184eb36a68cc8e97888b53aba9d267fdf9c00647e5a72cba416d2f6821427273b6a2fdf45b1d6b350e/master.m3u8";
+    var videoSrc = "https://wf1.jonextugundu.net/_v7/9f3fa2c470530e8cd0b063e2c709ad48eab936a52000f105f2dc4f78c2ff3679a51f6cf9d0c715c5a986803f872ce9ee9fcc1cb87c7b0a8d69516effbf79da7829df25a1fca46ae7dd3d6961a9ff9668b7771965d16e6155b65b0d5a61f2e7bd355761ff0a03bcf408dafa619317e899dc125aab19e54ad3be49f6698da08b63/master.m3u8";
    </script>
   <script src="../search.js"></script>
   <script src="../vidplayer.js"></script>
