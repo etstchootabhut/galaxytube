@@ -164,9 +164,5 @@ searchInput.addEventListener("input", searchItems);
     });
   });
 
-  document.addEventListener("fullscreenchange", () => {
-    if (document.fullscreenElement) {
-      screen.orientation.lock("landscape").catch(err => console.log(err));
-    }
-  });
+  
   
