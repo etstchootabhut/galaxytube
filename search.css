@@ -59,31 +59,6 @@ body {
   text-align: center;
 }
 
-@media (max-width: 480px) { /* Mobile phones */
-  #search-header h2 {
-    font-size: 20px;
-  }
-  
-  .movie-card {
-    width: 90%; /* One card per row on smallest screens */
-    max-width: none;
-  }
-  
-  .movie-card img {
-    height: 250px;
-  }
-  
-  #search-input {
-    padding: 10px;
-    font-size: 13px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    font-size: 14px;
-  }
-}
-
 /* Touch Optimization */
 button {
   min-width: 60px; /* Minimum touch target size */
