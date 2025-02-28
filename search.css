@@ -1,14 +1,6 @@
 /* Add viewport meta tag in HTML head for proper mobile rendering */
 /* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
 
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-}
 
 /* Search Results Header */
 #search-header {

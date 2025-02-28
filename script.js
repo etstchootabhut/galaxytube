@@ -73,3 +73,7 @@ dots.forEach((dot, i) => {
     changeSlide(0);
   });
 });
+
+function goToMovie(url) {
+  window.location.href = url;
+}

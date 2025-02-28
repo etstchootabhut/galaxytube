@@ -11,27 +11,27 @@
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="logo">
-      <!-- Add your custom logo image here -->
-      <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
-      GalaxyTube
+<!-- 🚀 Futuristic Navbar -->
+<header class="navbar">
+  <div class="logo">
+    <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+    <span>GalaxyTube</span>
+  </div>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="cartoonmovies.html">Cartoon Movies</a>
+    <a href="movies.html">Movies</a>
+  </nav>
+  <div class="search-bar">      
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
+      <button onclick="performSearch()">Search</button>
+      <div id="search-suggestions" class="suggestions-container"></div>
+    </div>                  
+        <!-- To display the filtered search results below the search bar -->
+        <div id="search-results"></div>          
     </div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="cartoonmovies.html">Cartoon Movies</a>
-      <a href="movies.html">Movies</a>
-    </nav>
-    <div class="search-bar">      
-      <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
-        <button onclick="performSearch()">Search</button>
-        <div id="search-suggestions" class="suggestions-container"></div>
-      </div>                  
-          <!-- To display the filtered search results below the search bar -->
-          <div id="search-results"></div>          
-      </div>
-  </header>
+</header>
 
   <main class="content">
     <h2>Cartoon Movies</h2>
@@ -135,6 +135,8 @@
     </div>
 
   </main>
+
+  <script src="script.js"></script>
 
 </body>
 </html>

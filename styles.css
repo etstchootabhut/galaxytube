@@ -419,10 +419,16 @@ body {
     
     .search-bar {
       display: flex;
+      width: 80%;
       align-items: center;
       position: relative;
-      right: 90px;
+      right: 70px;
     }
+
+    html, body {
+      touch-action: pan-x pan-y;
+      overscroll-behavior: none;
+  }  
     
     
     .logo {
@@ -498,4 +504,14 @@ body {
   z-index: 10; /* Ensure it's above any overlapping elements */
   position: relative;
 }
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #000; /* Match your theme */
+  z-index: 100;
+}
+
 }
