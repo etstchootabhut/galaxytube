@@ -57,6 +57,22 @@ const movies = [
 { title: "Bahubali: The Beginning", link: "movies/movie6.html" },
 { title: "Super 30", link: "movies/movie7.html" },
 { title: "One Piece Film Red", link: "movies/movie8.html" },
+{ title: "One Piece Film Stampede", link: "movies/movie9.html" },
+{ title: "One Piece Film Gold", link: "movies/movie10.html" },
+{ title: "One Piece Film Strong World", link: "movies/movie11.html" },
+{ title: "One Piece Film z", link: "movies/movie12.html" },
+{ title: "I want to eat your pancreas", link: "movies/movie13.html" },
+{ title: "Silent Voice", link: "movies/movie14.html" },
+{ title: "Spirited Away", link: "movies/movie15.html" },
+{ title: "Suzume", link: "movies/movie16.html" },
+{ title: "Weathering with you", link: "movies/movie17.html" },
+{ title: "Wolf Children", link: "movies/movie18.html" },
+{ title: "Whisker Away", link: "movies/movie19.html" },
+{ title: "Grave of Fireflies", link: "movies/movie20.html" },
+{ title: "Maquia: When the Promised Flower Blooms", link: "movies/movie21.html" },
+{ title: "To the Forest of Firefly Lights", link: "movies/movie22.html" },
+{ title: "5 Centimeters per Second", link: "movies/movie23.html" },
+{ title: "The Garden of Words", link: "movies/movie24.html" },
 ];
 
 function searchItems() {
@@ -105,23 +121,6 @@ document.addEventListener("click", (e) => {
 // Show suggestions while typing
 searchInput.addEventListener("input", searchItems);
 
-  document.addEventListener("fullscreenchange", async function () {
-    if (document.fullscreenElement) {
-      // Change to landscape when entering fullscreen
-      if (screen.orientation && screen.orientation.lock) {
-        try {
-          await screen.orientation.lock("landscape");
-        } catch (error) {
-          console.warn("Orientation lock not supported:", error);
-        }
-      }
-    } else {
-      // Unlock orientation when exiting fullscreen
-      if (screen.orientation && screen.orientation.unlock) {
-        screen.orientation.unlock();
-      }
-    }
-  });
 
   document.addEventListener('DOMContentLoaded', () => {
     const video = document.querySelector('.video-container video');
@@ -162,7 +161,49 @@ searchInput.addEventListener("input", searchItems);
       video.volume = clickPosition;
       volumeLevel.style.height = `${clickPosition * 100}%`;
     });
+
+    function handleFullscreenChange() {
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+          // If fullscreen, lock to landscape
+          lockOrientation("landscape");
+      } else {
+          // If exiting fullscreen, unlock or set to portrait
+          screen.orientation.unlock();
+          lockOrientation("portrait");
+      }
+  }
+
+  function forceLandscape() {
+    if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("landscape").catch(err => console.log("Orientation lock error:", err));
+    }
+}
+
+// Handle Fullscreen Changes
+function handleFullscreenChange() {
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+        forceLandscape(); // Force landscape when fullscreen
+    }
+}
+
+// Listen for fullscreen change events
+document.addEventListener("fullscreenchange", handleFullscreenChange);
+document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+
+// Request fullscreen when clicking on the video
+video.addEventListener("click", () => {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+        }
+        forceLandscape(); // Ensure landscape immediately when entering fullscreen
+    }
+});
+
   });
 
-  
+
+
   

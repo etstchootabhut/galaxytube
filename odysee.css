@@ -23,7 +23,7 @@ body {
 /* 📺 Responsive Video Embed */
 .video-container iframe {
   width: 100%;
-  height: auto;
+  height: 100%;
   border: none;
 }
 
@@ -109,7 +109,7 @@ video {
 
 .progress-bar {
   height: 100%;
-  background: #e50914;
+  background: #0ff;
   width: 0;
   position: relative;
   transition: width 0.1s linear;
@@ -149,7 +149,7 @@ video {
 .volume-slider {
   width: 10px;
   height: 4px;
-  background: #e50914;
+  background: #0ff;
   position: absolute;
   top: 40px;
   opacity: 0;
@@ -380,7 +380,7 @@ body {
 
 .progress-bar {
   height: 100%;
-  background: #e50914;
+  background: #0ff;
   width: 0;
   transition: width 0.1s linear;
 }
@@ -417,7 +417,7 @@ body {
 .volume-slider {
   width: 100px;
   height: 4px;
-  background: #e50914;
+  background: #0ff;
   border-radius: 2px;
   cursor: pointer;
 }

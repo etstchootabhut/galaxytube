@@ -170,12 +170,13 @@ body {
   
   .movie-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 20px;
+    grid-template-columns: repeat(6, 1fr); /* 3 columns */
+    gap: 10px;
+    padding: 10px;
     max-width: 900px;
     margin: auto;
-  }
+}
+
   
   .movie {
     background: rgba(0, 0, 0, 0.8);
@@ -192,7 +193,7 @@ body {
 
   .movie img {
     width: 100%; /* Ensures responsiveness */
-    height: 230px; /* Set a fixed height */
+    height: 200px; /* Set a fixed height */
     object-fit: cover; /* Crops and fills the space while maintaining aspect ratio */
     border-radius: 5px; /* Optional: Rounded corners for better design */
   }
@@ -200,7 +201,8 @@ body {
   
   .movie p {
     margin: 10px 0 ;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
   }
   
   .movie:hover {
