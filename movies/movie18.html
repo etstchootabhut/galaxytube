@@ -37,7 +37,10 @@
 
   <!-- 🎥 Video Section -->
   <div class="video-container" id="videoContainer">
-    <video id="video"></video>
+    <video id="video" style="width: 100%; height: auto;">
+        <!-- Link to your external subtitle file -->
+        <track id="captionsTrack" label="English" kind="subtitles" srclang="en" src="../subtitles/a443627e6f64d3a7298883920dd536f1.vtt" default>
+    </video>
     
     <div class="controls-container">
         <div class="progress-container" id="progressContainer">
@@ -79,7 +82,7 @@
     <!-- Settings Menu -->
     <div class="settings-menu" id="settingsMenu">
         <button id="speedBtn">Speed: 1x</button>
-        <button id="captionsBtn">Captions: Off</button>
+        <button id="captionsBtn">Captions: On</button>
         <button id="qualityBtn">Quality: Auto</button>
     </div>
 
@@ -96,7 +99,7 @@
 
   <!-- 🌠 Title & Description -->
   <div class="video-details">
-    <h2 class="video-title">Your Name</h2>
+    <h2 class="video-title">Wold Children</h2>
     <p class="video-description">
         The film explores themes of love, friendship, and the search for identity, set against a backdrop of stunning visuals and a captivating soundtrack. It premiered at the 2016 Anime Expo in Los Angeles on July 3, 2016, and was theatrically released in Japan on August 26, 2016. The movie has been praised for its beautiful animation, emotional depth, and the way it balances fantastical elements with grounded reality.
     </p>
@@ -118,7 +121,7 @@
     }
   </script>
    <script>
-    var videoSrc = "https://hlsx3cdn.echovideo.to/kimi-no-na-wa/1/master.m3u8";
+    var videoSrc = "https://hlsx3cdn.echovideo.to/ookami-kodomo-no-ame-to-yuki/1/master.m3u8";
    </script>
   <script src="../search.js"></script>
   <script src="../vidplayer.js"></script>
