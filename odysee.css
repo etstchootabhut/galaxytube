@@ -23,6 +23,7 @@ body {
 /* 📺 Responsive Video Embed */
 .video-container iframe {
   width: 100%;
+  height: auto;
   border: none;
 }
 
