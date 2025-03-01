@@ -407,4 +407,23 @@ document.addEventListener("DOMContentLoaded", function () {
             captionsBtn.innerText = "Captions: On";
         }
     });
+    fullscreenBtn.addEventListener("click", async () => {
+    if (!document.fullscreenElement) {
+        try {
+            await videoContainer.requestFullscreen();
+            if (screen.orientation && screen.orientation.lock) {
+                await screen.orientation.lock("landscape");
+            }
+            videoContainer.appendChild(volumeIndicator);
+            videoContainer.appendChild(skipIndicator);
+        } catch (err) {
+            console.error("Fullscreen mode failed:", err);
+        }
+    } else {
+        if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+        }
+        document.exitFullscreen();
+    }
+});
 });
