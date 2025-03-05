@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galactic Video Hub</title>
   <link rel="stylesheet" href="../odysee.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Space Icons -->
 </head>
 <body>
@@ -34,50 +36,77 @@
   </header>
 
   <!-- 🎥 Video Section -->
-  <div class="video-container">
-    <!-- Video Content will go here -->
-      <iframe id="odysee-video" 
-        src="https://odysee.com/$/embed/bbhauku:a?autoplay=0" 
-        allowfullscreen>
-      </iframe>
-  </div>
+  <div class="video-container" id="videoContainer">
+    <video id="video"></video>
+    
+    <div class="controls-container">
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="controls-row">
+            <div class="left-controls">
+                <button class="control-btn" id="rewindBtn">
+                  <i class="fa-solid fa-rotate-left fa-2x" alt="rewindbtn"></i>
+                </button>
+                <button class="control-btn" id="playBtn">
+                  <i class="fa-solid fa-play fa-2x" alt="play"></i>
+                </button>
+                <button class="control-btn" id="forwardBtn">
+                  <i class="fa-solid fa-rotate-right fa-2x" alt="forwardbtn"></i>
+                </button>
+                <div class="volume-container">
+                    <button class="control-btn" id="volumeBtn">
+                      <i class="fa-solid fa-volume fa-2x" alt="volumebtn"></i>
+                    </button>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="1">
+                </div>
+                <span class="time-display">
+                    <span id="currentTime">0:00</span> / 
+                    <span id="duration">0:00</span>
+                </span>
+            </div>
+            <div class="right-controls">
+                <button class="control-btn" id="settingsBtn">
+                  <i class="fa-solid fa-gear fa-2x" alt="settingsbtn"></i>
+                </button>
+                <button class="control-btn" id="fullscreenBtn">
+                  <i class="fa-solid fa-expand fa-2x" alt="fullscreenBtn"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Menu -->
+    <div class="settings-menu" id="settingsMenu">
+        <button id="speedBtn">Speed: 1x</button>
+        <button id="captionsBtn">Captions: Off</button>
+        <button id="qualityBtn">Quality: Auto</button>
+    </div>
+
+    <!-- Big Play Button -->
+    <button class="big-play-btn" id="bigPlayBtn">
+      <i class="fa-solid fa-pause fa-2x" alt="bigPlayBtn"></i>
+    </button>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+      <i class="fa-solid fa-spinner fa-3x" alt="loading-spinner" width="40"></i>
+    </div>
+</div>
+
   <!-- 🌠 Title & Description -->
-  <div class="video-details">
-    <h1>Current Video Language </h1>
-    <a href=""><button>Hindi</button></a>
-   </div>
   <div class="video-details">
     <h2 class="video-title">Bahubali: The Beginning</h2>
     <p class="video-description">
-        Baahubali: The Beginning is a 2015 Indian epic fantasy action film directed by S.S. Rajamouli and produced by Shobu Yarlagadda and Prasad Devineni under Arka Media Works. The film, shot in Telugu and Tamil, follows Shivudu, an adventurous young man who helps his love Avantika rescue Devasena, the former queen of Mahishmati, from the tyrannical rule of king Bhallaladeva.
+      Baahubali: The Beginning is a 2015 Indian epic fantasy action film directed by S.S. Rajamouli and produced by Shobu Yarlagadda and Prasad Devineni under Arka Media Works. The film, shot in Telugu and Tamil, follows Shivudu, an adventurous young man who helps his love Avantika rescue Devasena, the former queen of Mahishmati, from the tyrannical rule of king Bhallaladeva.
     </p>
 
     <!-- 📥 Download Button -->
-    <a href="https://download1334.mediafire.com/cyhekoddkmlgqNCKoBLiBPRApf2XBhlP72is0k8D-f_wnY1jf4cbxAlVEw8RFyBYU64IRS2vjfOQipWLPq4r0GJTmB4fNKucwRLLcF0UlTBogCwyAOwr5E5r0bej9mW2jfIyKk-k_TcKFk0qYSiJSlF0NhWmvY29j0oN-xBT8Wok/gohn5njtibqvwyw/%5BDora+Bash%5D+Doraemon+Nobita%5C%27s+Great+Adventure+in+the+South+Seas%281998%29+Hindi+Dubbed.mkv" download="video.mp4" class="download-button">🚀 Download Movie
+    <a href="https://fenvixlight88.pro/file1/zh83Htp12j92YnR7+nFcBCMcPgzR9FhcmTRK6bxjSO~RuaxGdjs7EWfU1sImF8oKk05RZ59vPSWhYLkf4EgdbRzF1z3FXSHTirEqddC~TCazEe0R5h2NJN8gMfttTULB1FdhxHMmoFg9H61ZIErm2m4OINXUEK59Zs2ZyohmZlU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" download="bahubali.m3u8" class="download-button">🚀 Download Movie
     </a>
   </div>
 
   <script>
-    function removeOdyseeBranding() {
-      let iframe = document.getElementById("odysee-video");
-      if (!iframe || !iframe.contentWindow) return;
-      
-      let iframeDoc;
-      try {
-        iframeDoc = iframe.contentWindow.document;
-      } catch (e) {
-        return;
-      }
-
-      if (!iframeDoc) return;
-
-      let branding = iframeDoc.querySelector(".vjs-watermark, .branding");
-      if (branding) branding.style.display = "none";
-    }
-
-    // Keep hiding branding every second
-    setInterval(removeOdyseeBranding, 1000);
-
     // 🌌 Search Bar Functionality (Fake Video Search)
     function searchVideo() {
       let query = document.getElementById("search-input").value.toLowerCase();
@@ -88,7 +117,11 @@
       }
     }
   </script>
+   <script>
+    var videoSrc = "https://fenvixlight88.pro/file1/zh83Htp12j92YnR7+nFcBCMcPgzR9FhcmTRK6bxjSO~RuaxGdjs7EWfU1sImF8oKk05RZ59vPSWhYLkf4EgdbRzF1z3FXSHTirEqddC~TCazEe0R5h2NJN8gMfttTULB1FdhxHMmoFg9H61ZIErm2m4OINXUEK59Zs2ZyohmZlU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8";
+   </script>
   <script src="../search.js"></script>
+  <script src="../vidplayer.js"></script>
 
 </body>
 </html>
