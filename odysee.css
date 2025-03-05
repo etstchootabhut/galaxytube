@@ -21,9 +21,9 @@ body {
 }
 
 /* 📺 Responsive Video Embed */
-.video-container iframe {
+.video-container video {
   width: 100%;
-  height: auto;
+  height: 100%;
   border: none;
 }
 
@@ -79,10 +79,6 @@ body {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
-video {
-  width: 100%;
-  height: 100%;
-}
 
 .controls-container {
   position: absolute;
@@ -216,8 +212,7 @@ video {
 }
 
 .fullscreen .video-container {
-  width: 100vw;
-  height: auto;
+  height: 100%;
   max-width: none;
   border-radius: 0;
 }
@@ -343,11 +338,6 @@ body {
   overflow: hidden;
 }
 
-/* 📺 Responsive Video Embed */
-.video-container iframe, .video-container video {
-  width: 100%;
-  height: auto;
-}
 
 /* 🕹 Video Controls */
 .controls-container {
@@ -363,6 +353,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 
 .video-container:hover .controls-container {
   opacity: 1;
@@ -460,6 +451,141 @@ body {
   padding: 8px;
 }
 
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+/* Pagination Buttons */
+.pagination-btn {
+  background-color: #6f42c1;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pagination-btn:hover {
+  background-color: #4b2c91;
+}
+
+#episode-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#episode-buttons button {
+  background: #0ff;
+  color: black;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#episode-buttons button:hover {
+  background: #19c2fa;
+  box-shadow: 0px 0px 8px rgba(25, 194, 250, 0.8);
+}
+
+#prevPage, #nextPage {
+  background: #6f42c1;
+  color: white;
+  border: none;
+  padding: 10px 35px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+#prevPage:disabled, #nextPage:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+/* Episode Buttons Container */
+.episode-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 850px; /* Same width as video player */
+  margin: 0px auto;
+  padding: 15px;
+}
+
+/* Individual Episode Button */
+.episode-btn {
+  background-color: #00bfff;
+  color: black;
+  width: 10%;
+  height: 40px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 100;
+}
+
+.episode-btn:hover {
+  background-color: #19c2fa;
+  box-shadow: 0px 0px 10px rgba(0, 191, 255, 0.8);
+}
+
+/* Sub & Dub Links */
+.sub-dub-links {
+  text-align: center;
+  font-size: 1.3em;
+  margin: 15px 0;
+  font-weight: bold;
+  z-index: 100;
+}
+
+.sub-dub-links a {
+  color: #00f0ff;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.sub-dub-links a:hover {
+  background: rgb(0, 255, 255);
+}
+
+/* Custom Video Player UI */
+.custom-player::-webkit-media-controls {
+  display: none !important;
+}
+
+#pagination{
+  margin-top: 30px;
+}
+
+.active-episode {
+  background: #00bfff !important;
+  color: white !important;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.9);
+}
+
+
+
+
+
 @media only screen and (max-width: 480px) {
   /* 🌌 Perfect Mobile Design - GalaxyTube */
 body {
@@ -491,7 +617,7 @@ body {
 
 .video-container video {
   width: 100%;
-  height: auto;
+  height: 100%;
   border: none;
 }
 
@@ -515,6 +641,7 @@ body {
   touch-action: manipulation;
   user-select: none;
   pointer-events: auto;
+  height: 100%;
 }
 
 .video-details {

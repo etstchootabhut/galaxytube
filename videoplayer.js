@@ -1,4 +1,4 @@
-const video = document.getElementById("video");
+const video = document.getElementById("videoPlayer");
 const videoContainer = document.getElementById("videoContainer");
 const playBtn = document.getElementById("playBtn");
 const bigPlayBtn = document.getElementById("bigPlayBtn");

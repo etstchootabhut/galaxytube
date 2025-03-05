@@ -162,7 +162,45 @@ searchInput.addEventListener("input", searchItems);
       volumeLevel.style.height = `${clickPosition * 100}%`;
     });
 
-    
+    function handleFullscreenChange() {
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+          // If fullscreen, lock to landscape
+          lockOrientation("landscape");
+      } else {
+          // If exiting fullscreen, unlock or set to portrait
+          screen.orientation.unlock();
+          lockOrientation("portrait");
+      }
+  }
+
+  function forceLandscape() {
+    if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("landscape").catch(err => console.log("Orientation lock error:", err));
+    }
+}
+
+// Handle Fullscreen Changes
+function handleFullscreenChange() {
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+        forceLandscape(); // Force landscape when fullscreen
+    }
+}
+
+// Listen for fullscreen change events
+document.addEventListener("fullscreenchange", handleFullscreenChange);
+document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+
+// Request fullscreen when clicking on the video
+video.addEventListener("click", () => {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+        }
+        forceLandscape(); // Ensure landscape immediately when entering fullscreen
+    }
+});
 
   });
 
