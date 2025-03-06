@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GalaxyTube - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="odysee.css">
+  <link rel="stylesheet" href="pagination.css"> <!-- CSS for buttons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- 🚀 Futuristic Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      <span>GalaxyTube</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="cartoonmovies.html">Cartoon Movies</a>
+      <a href="movies.html">Movies</a>
+    </nav>
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
+  </header>
+   
+  <!-- 🌌 Netflix-Style Content Grid -->
+  <main class="content">
+    <h2>Movies</h2>
+    <div class="movie-grid">
+        <div class="movie">
+          <a href="movies/movie37.html">
+              <img src="images/prestige.jpeg" alt="Movie 5">
+              <p>The Prestige</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie38.html">
+              <img src="images/manofsteel.jpeg" alt="Movie 5">
+              <p>Man of Steel</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie39.html">
+              <img src="images/batmanvsuperman.jpeg" alt="Movie 5">
+              <p>Batman v Superman: Dawn of Justice</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie40.html">
+              <img src="images/wonderwoman.jpeg" alt="Movie 5">
+              <p>Wonder Woman</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie41.html">
+              <img src="images/justiceleague.jpeg" alt="Movie 5">
+              <p>Zack Snyder's Justice League</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie42.html">
+              <img src="images/aquaman.jpeg" alt="Movie 5">
+              <p>Aquaman</p>
+          </a>    
+        </div>
+        <div class="movie">
+            <a href="movies/movie43.html">
+                <img src="images/shazam.jpeg" alt="Movie 5">
+                <p>Shazam</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie44.html">
+                <img src="images/joker.jpeg" alt="Movie 5">
+                <p>Joker</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie45.html">
+                <img src="images/wonderwoman1984.jpeg" alt="Movie 5">
+                <p>Wonder Woman 1984</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie46.html">
+                <img src="images/suicidesquad.jpeg" alt="Movie 5">
+                <p>The Suicide Squad</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie47.html">
+                <img src="images/thebatman.jpeg" alt="Movie 5">
+                <p>The Batman</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie48.html">
+                <img src="images/blackadam.jpeg" alt="Movie 5">
+                <p>Black Adam</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie49.html">
+                <img src="images/shazam2.jpeg" alt="Movie 5">
+                <p>Shazam! Fury of Gods</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie50.html">
+                <img src="images/theflash.jpeg" alt="Movie 5">
+                <p>>The Flash</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie51.html">
+                <img src="images/bluebeetle.jpeg" alt="Movie 5">
+                <p>Blue Beetle</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie52.html">
+                <img src="images/aquaman2.jpeg" alt="Movie 5">
+                <p>Aqua Man and the Lost Kingdom</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie53.html">
+                <img src="images/joker2.jpeg" alt="Movie 5">
+                <p>Joker: Folie à Deux</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie54.html">
+                <img src="images/incrediblehulk.jpeg" alt="Movie 5">
+                <p>The Incredible Hulk</p>
+            </a>    
+          </div>
+    </div>
+
+    <!-- Pagination Buttons -->
+    <div class="pagination">
+    <a href="movies2.html" class="page-button">← Previous Page</a>
+      <a href="movie4.html" class="page-button">Next Page →</a>
+    </div>
+
+  </main>
+
+  <script src="search.js"></script>
+
+</body>
+</html>

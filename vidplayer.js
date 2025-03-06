@@ -411,3 +411,112 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    var video = document.getElementById("video");
+    var qualityBtn = document.getElementById("qualityBtn");
+    var settingsMenu = document.getElementById("settingsMenu");
+    var qualityDropdown;
+    var hls;
+
+    function loadHLS() {
+        if (Hls.isSupported()) {
+            hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                console.log("HLS Loaded Successfully");
+                createQualityMenu();
+            });
+        } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+            video.src = videoSrc;
+        } else {
+            console.error("HLS is not supported in this browser.");
+        }
+    }
+
+    function createQualityMenu() {
+        if (document.querySelector(".quality-dropdown")) {
+            document.querySelector(".quality-dropdown").remove();
+        }
+
+        let levels = [
+            { index: -1, resolution: "Auto" },
+            { index: 0, resolution: "480p" },
+            { index: 1, resolution: "720p" },
+            { index: 2, resolution: "1080p" }
+        ];
+
+        qualityDropdown = document.createElement("div");
+        qualityDropdown.classList.add("quality-dropdown");
+
+        levels.forEach((level) => {
+            let option = document.createElement("button");
+            option.innerText = level.resolution;
+            option.dataset.level = level.index;
+            option.classList.add("quality-option");
+            option.addEventListener("click", function () {
+                changeQuality(level.index);
+                qualityBtn.innerText = "Quality: " + level.resolution;
+                qualityDropdown.style.display = "none";
+            });
+            qualityDropdown.appendChild(option);
+        });
+
+        settingsMenu.appendChild(qualityDropdown);
+    }
+
+    function changeQuality(index) {
+        hls.currentLevel = index;
+    }
+
+    qualityBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        qualityDropdown.style.display = qualityDropdown.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function (e) {
+        if (!qualityDropdown.contains(e.target) && e.target !== qualityBtn) {
+            qualityDropdown.style.display = "none";
+        }
+    });
+
+    loadHLS();
+});
+
+// CSS for better UI
+const style = document.createElement("style");
+style.innerHTML = `
+.quality-dropdown {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.quality-option {
+    background: none;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.quality-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}`;
+document.head.appendChild(style);

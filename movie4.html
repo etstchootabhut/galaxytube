@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GalaxyTube - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="odysee.css">
+  <link rel="stylesheet" href="pagination.css"> <!-- CSS for buttons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- 🚀 Futuristic Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      <span>GalaxyTube</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="cartoonmovies.html">Cartoon Movies</a>
+      <a href="movies.html">Movies</a>
+    </nav>
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
+  </header>
+   
+  <!-- 🌌 Netflix-Style Content Grid -->
+  <main class="content">
+    <h2>Movies</h2>
+    <div class="movie-grid">
+        <div class="movie">
+          <a href="movies/movie55.html">
+              <img src="images/thor.jpeg" alt="Movie 5">
+              <p>Thor</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie56.html">
+              <img src="images/firstavenger.jpeg" alt="Movie 5">
+              <p>Captain America: The First Avenger</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie57.html">
+              <img src="images/avengers.jpeg" alt="Movie 5">
+              <p>The Avengers</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie58.html">
+              <img src="images/thordarkworld.jpeg" alt="Movie 5">
+              <p>Thor: The Dark World</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie59.html">
+              <img src="images/capwintersoldier.jpeg" alt="Movie 5">
+              <p>Captain America: The Winter Soldier</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie60.html">
+              <img src="images/gotg.jpeg" alt="Movie 5">
+              <p>Guardians of the Galaxy</p>
+          </a>    
+        </div>
+        <div class="movie">
+            <a href="movies/movie61.html">
+                <img src="images/ageofultron.jpeg" alt="Movie 5">
+                <p>Avengers: Age of Ultron</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie62.html">
+                <img src="images/docstrange.jpeg" alt="Movie 5">
+                <p>Doctor Strange</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie63.html">
+                <img src="images/antman.jpeg" alt="Movie 5">
+                <p>Ant Man</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie64.html">
+                <img src="images/civilwar.jpeg" alt="Movie 5">
+                <p>Captain America: Civil War</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie65.html">
+                <img src="images/gotg2.jpeg" alt="Movie 5">
+                <p>Guardians of the Galaxy Vol. 2</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie66.html">
+                <img src="images/spidermanhomecoming.jpeg" alt="Movie 5">
+                <p>Spider-Man: Homecoming</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie67.html">
+                <img src="images/thorragnarock.jpeg" alt="Movie 5">
+                <p>Thor: Ragnarok</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie68.html">
+                <img src="images/blackpanther.jpeg" alt="Movie 5">
+                <p>>Black Panther</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie69.html">
+                <img src="images/infinitywar.jpeg" alt="Movie 5">
+                <p>Avengers: Infinity War</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie70.html">
+                <img src="images/antwasp.jpeg" alt="Movie 5">
+                <p>Ant-Man and the Wasp</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie71.html">
+                <img src="images/captainmarvel.jpeg" alt="Movie 5">
+                <p>Captain Marvel</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie72.html">
+                <img src="images/spidermanfarfromhome.jpeg" alt="Movie 5">
+                <p>Spider-Man: Far From Home</p>
+            </a>    
+          </div>
+    </div>
+
+    <!-- Pagination Buttons -->
+    <div class="pagination">
+    <a href="movie3.html" class="page-button">← Previous Page</a>
+      <a href="movie5.html" class="page-button">Next Page →</a>
+    </div>
+
+  </main>
+
+  <script src="search.js"></script>
+
+</body>
+</html>
