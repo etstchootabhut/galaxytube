@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GalaxyTube - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="odysee.css">
+  <link rel="stylesheet" href="pagination.css"> <!-- CSS for buttons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- 🚀 Futuristic Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      <span>GalaxyTube</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="cartoonmovies.html">Cartoon Movies</a>
+      <a href="movies.html">Movies</a>
+    </nav>
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
+  </header>
+   
+  <!-- 🌌 Netflix-Style Content Grid -->
+  <main class="content">
+    <h2>Movies</h2>
+    <div class="movie-grid">
+        <div class="movie">
+          <a href="movies/movie91.html">
+              <img src="images/hpdeadhallows1.jpeg" alt="Movie 5">
+              <p>Harry Potter and the Deathly Hallows: Part 1</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie92.html">
+              <img src="images/hpdeadhallows2.jpeg" alt="Movie 5">
+              <p>Harry Potter and the Deathly Hallows: Part 2</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie93.html">
+              <img src="images/spiderman.jpeg" alt="Movie 5">
+              <p>Spider-Man</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie94.html">
+              <img src="images/spiderman2.jpeg" alt="Movie 5">
+              <p>Spider-Man 2</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie95.html">
+              <img src="images/spiderman3.jpeg" alt="Movie 5">
+              <p>Spider-Man 3</p>
+          </a>    
+        </div>
+        <div class="movie">
+          <a href="movies/movie96.html">
+              <img src="images/ghostrider.jpeg" alt="Movie 5">
+              <p>Ghost Rider</p>
+          </a>    
+        </div>
+        <div class="movie">
+            <a href="movies/movie97.html">
+                <img src="images/ghostrider2.jpeg" alt="Movie 5">
+                <p>Ghost Rider: Spirit of Vengeance</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie98.html">
+                <img src="images/amazingspiderman.jpeg" alt="Movie 5">
+                <p>The Amazing Spider-Man</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie99.html">
+                <img src="images/amazingspiderman2.jpeg" alt="Movie 5">
+                <p>The Amazing Spider-Man 2</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie100.html">
+                <img src="images/punisher.jpeg" alt="Movie 5">
+                <p>The Punisher</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie101.html">
+                <img src="images/punisher2.jpeg" alt="Movie 5">
+                <p>Punisher: War Zone</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie102.html">
+                <img src="images/venom.jpeg" alt="Movie 5">
+                <p>Venom</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie103.html">
+                <img src="images/venom2.jpeg" alt="Movie 5">
+                <p>Venom: Let There Be Carnage</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie104.html">
+                <img src="images/venomlastdance.jpeg" alt="Movie 5">
+                <p>Venom: The Last Dance</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie105.html">
+                <img src="images/intospiderverse.jpeg" alt="Movie 5">
+                <p>Spider-Man: Into the Spider-Verse</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie106.html">
+                <img src="images/acrossspiderverse.jpeg" alt="Movie 5">
+                <p>Spider-Man: Across the Spider-Verse</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie107.html">
+                <img src="images/morbius.jpeg" alt="Movie 5">
+                <p>Morbius</p>
+            </a>    
+          </div>
+          <div class="movie">
+            <a href="movies/movie108.html">
+                <img src="images/munnabhai.jpeg" alt="Movie 5">
+                <p>Munna Bhai M.B.B.S.</p>
+            </a>    
+          </div>
+    </div>
+
+    <!-- Pagination Buttons -->
+    <div class="pagination">
+    <a href="movie5.html" class="page-button">← Previous Page</a>
+      <a href="movie7.html" class="page-button">Next Page →</a>
+    </div>
+
+  </main>
+
+  <script src="search.js"></script>
+
+</body>
+</html>

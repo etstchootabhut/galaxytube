@@ -29,6 +29,34 @@ settingsBtn.addEventListener("click", (e) => {
     settingsMenu.style.display = settingsMenu.style.display === "block" ? "none" : "block";
 });
 
+fullscreenBtn.addEventListener("click", async () => {
+    if (!document.fullscreenElement) {
+        try {
+            await videoContainer.requestFullscreen();
+            if (screen.orientation && screen.orientation.lock) {
+                await screen.orientation.lock("landscape"); // Lock to landscape
+            }
+            videoContainer.appendChild(volumeIndicator);
+            videoContainer.appendChild(skipIndicator);
+        } catch (err) {
+            console.error("Fullscreen or orientation lock failed:", err);
+        }
+    } else {
+        if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock(); // Unlock orientation
+        }
+        document.exitFullscreen();
+    }
+});
+
+// Reset orientation when exiting fullscreen
+document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement && screen.orientation.unlock) {
+        screen.orientation.unlock();
+    }
+});
+
+
 // ✅ Close Settings When Clicking Outside
 document.addEventListener("click", (e) => {
     if (!settingsMenu.contains(e.target) && e.target !== settingsBtn) {
