@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galactic Video Hub</title>
+  <link rel="stylesheet" href="../odysee.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Space Icons -->
+</head>
+<body>
+
+  <!-- 🚀 Futuristic Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <!-- Add your custom logo image here -->
+      <img src="../galaxytube.png" alt="GalaxyTube Logo" class="logo-img">
+      GalaxyTube
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../cartoonmovies.html">Cartoon Movies</a>
+      <a href="../movies.html">Movies</a>
+    </nav>
+    <div class="search-bar">      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()" autocomplete="off">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-suggestions" class="suggestions-container"></div>
+      </div>                  
+          <!-- To display the filtered search results below the search bar -->
+          <div id="search-results"></div>          
+      </div>
+  </header>
+
+  <!-- 🎥 Video Section -->
+  <div class="video-container" id="videoContainer">
+    <video id="video" style="width: 100%; height: auto;">
+        <!-- Link to your external subtitle file -->
+        <track id="captionsTrack" label="English" kind="subtitles" srclang="en" src="../subtitles/a443627e6f64d3a7298883920dd536f1.vtt" default>
+    </video>
+    
+    <div class="controls-container">
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="controls-row">
+            <div class="left-controls">
+                <button class="control-btn" id="rewindBtn">
+                  <i class="fa-solid fa-rotate-left fa-2x" alt="rewindbtn"></i>
+                </button>
+                <button class="control-btn" id="playBtn">
+                  <i class="fa-solid fa-play fa-2x" alt="play"></i>
+                </button>
+                <button class="control-btn" id="forwardBtn">
+                  <i class="fa-solid fa-rotate-right fa-2x" alt="forwardbtn"></i>
+                </button>
+                <div class="volume-container">
+                    <button class="control-btn" id="volumeBtn">
+                      <i class="fa-solid fa-volume fa-2x" alt="volumebtn"></i>
+                    </button>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="1">
+                </div>
+                <span class="time-display">
+                    <span id="currentTime">0:00</span> / 
+                    <span id="duration">0:00</span>
+                </span>
+            </div>
+            <div class="right-controls">
+                <button class="control-btn" id="settingsBtn">
+                  <i class="fa-solid fa-gear fa-2x" alt="settingsbtn"></i>
+                </button>
+                <button class="control-btn" id="fullscreenBtn">
+                  <i class="fa-solid fa-expand fa-2x" alt="fullscreenBtn"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Menu -->
+    <div class="settings-menu" id="settingsMenu">
+        <button id="speedBtn">Speed: 1x</button>
+        <button id="captionsBtn">Captions: On</button>
+        <button id="qualityBtn">Quality: Auto</button>
+    </div>
+
+    <!-- Big Play Button -->
+    <button class="big-play-btn" id="bigPlayBtn">
+      <i class="fa-solid fa-pause fa-2x" alt="bigPlayBtn"></i>
+    </button>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+      <i class="fa-solid fa-spinner fa-3x" alt="loading-spinner" width="40"></i>
+    </div>
+</div>
+
+  <!-- 🌠 Title & Description -->
+  <div class="video-details">
+    <h2 class="video-title">Harry Potter and the Deathly Hallows: Part 1</h2>
+    <p class="video-description">
+        The film explores themes of love, friendship, and the search for identity, set against a backdrop of stunning visuals and a captivating soundtrack. It premiered at the 2016 Anime Expo in Los Angeles on July 3, 2016, and was theatrically released in Japan on August 26, 2016. The movie has been praised for its beautiful animation, emotional depth, and the way it balances fantastical elements with grounded reality.
+    </p>
+
+    <!-- 📥 Download Button -->
+    <a href="https://thunderstrike39.xyz/file1/2rKZjyk++G72krmgoRonjQjAW0deOYm12sU26rgZUKMaPAlGVh+NgDVEQOSKK~X1wMmjVqLDOAPALQwRws14dwtR03xAE1vwmKTvvLv6DIdHP63MW1R3fcf+pzHSbaYG1EOu+sTkLDI2ow68dlvvJTOaZZ~o7OTizkjS5y7vwJI=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" download="harrypotter.mp4" class="download-button">🚀 Download Movie
+    </a>
+  </div>
+
+  <script>
+    // 🌌 Search Bar Functionality (Fake Video Search)
+    function searchVideo() {
+      let query = document.getElementById("search-input").value.toLowerCase();
+      if (query.includes("galaxy")) {
+        alert("🚀 Showing results for: 'Galaxy'");
+      } else {
+        alert("❌ No results found. Try searching for 'Galaxy'.");
+      }
+    }
+  </script>
+   <script>
+    var videoSrc = "https://thunderstrike39.xyz/file1/2rKZjyk++G72krmgoRonjQjAW0deOYm12sU26rgZUKMaPAlGVh+NgDVEQOSKK~X1wMmjVqLDOAPALQwRws14dwtR03xAE1vwmKTvvLv6DIdHP63MW1R3fcf+pzHSbaYG1EOu+sTkLDI2ow68dlvvJTOaZZ~o7OTizkjS5y7vwJI=/MTA4MA==/aW5kZXgubTN1OA==.m3u8";
+   </script>
+  <script src="../search.js"></script>
+  <script src="../vidplayer.js"></script>
+
+</body>
+</html>
