@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galactic Video Hub</title>
   <link rel="stylesheet" href="../odysee.css">
-  <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Space Icons -->
 </head>
 <body>
@@ -95,13 +95,13 @@
 
   <!-- 🌠 Title & Description -->
   <div class="video-details">
-    <h2 class="video-title">SHINCHAN – ADVENTURES IN HENDERLAND</h2>
+    <h2 class="video-title">SHINCHAN ADVENTURES IN HENDERLAND</h2>
     <p class="video-description">
-        The movie "Doraemon: Nobita the Explorer Bow! Bow!" is a part of the Doraemon franchise. In the story, Nobita finds a stray dog and brings it home, naming it Peko. It is later revealed that Peko is actually a prince from a dog kingdom located deep in the African Smokers Forest, where dogs have evolved and developed their own empire
+        Doraemon: Nobita Aur Khel Khilona Bhool Bhulaiya is a 1993 Japanese animated science fiction film.Nobita's dad discusses holiday plans with his family, but realizes he can't find the resort. A magical gate appears in Nobita's room, leading to a world of tin toys. When Doraemon gets abducted, the gang sets out to rescue him.
     </p>
 
     <!-- 📥 Download Button -->
-    <a href="https://download1479.mediafire.com/f831dr0hsyvg8dv0qNa7X0onrZS4gbyEHRZqV0qkib1G2GJn5e5DZsEOSkv7SqO0MGlQkDAwX0eraeIPqRrjnMavQjEqmWQopEiHr3loqFPjdl9iyUkWxhZqQRmLVonUA4PDx4yKk_VVIXT5JaV1qo49fxxcV52C479cpqz3QO8F/hhr76j6ku3hixec/%5BDora+Bash%5D+Doraemon+Movie+Nobita+The+Explorer+Bow%21+Bow%21+%282014%29+Hindi+Dubbed.mp4" download="video.mp4" class="download-button">🚀 Download Movie
+    <a href="https://download1323.mediafire.com/gqneks5em6ngVW80sgUS_wPyieeetbbq7dxAOA1vaaDnns6pbfI1F1AEbXGCwN3GNOxIJnGagPW-PfEsORjr7YAPPxxau8iuXGkKsDAxP4YS0dSe0GvSCoO-fh6sqzmWljM_J2q3YfXRmU3QRfu8g4lowW8S1YvzN3ymvthKdyUd/m9es9783376bjzx/Doraemon+Movie+Nobita+Aur+Khel+Khilona+Bhool+Bhulaiya%281993%29+Hindi+Dubbed.mp4" download="video.mp4" class="download-button">🚀 Download Movie
     </a>
   </div>
 
@@ -136,36 +136,8 @@
       }
     }
   </script>
-  <script src="search.js"></script>
-  <script>
-    // Function for handling search button click
-    function performSearch() {
-      const query = document.getElementById("search-input").value;
-      
-      // Redirect to the search-results page with query in URL
-      if(query.trim()) {
-        window.location.href = `search-results.html?query=${encodeURIComponent(query)}`;
-      }
-    }
-    
-    // Show search suggestions (can be the same as before)
-    function searchItems() {
-      const query = document.getElementById("search-input").value.toLowerCase();
-      const suggestionsDiv = document.getElementById("suggestions");
-      const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query));
-  
-      if (filteredMovies.length > 0 && query !== "") {
-        suggestionsDiv.innerHTML = filteredMovies.map(movie => 
-          `<div class="suggestion-item">
-            <a href="search-results.html?query=${encodeURIComponent(movie.title)}">${movie.title}</a>
-          </div>`).join('');
-        suggestionsDiv.style.display = "block";
-      } else {
-        suggestionsDiv.style.display = "none";
-      }
-    }
-  </script>
   <script src="../search.js"></script>
+  <script src="../vidplayer.js"></script>
 
 </body>
 </html>
